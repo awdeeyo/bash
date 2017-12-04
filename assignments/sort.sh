@@ -1,44 +1,18 @@
-//Kevin Le
-#include<stdio.h>
-#include<stdlib.h>
-int main(int argc, char **argv, char **env)
-{
-     int array[argc-1],i,j,tmp;
-     
-     for(i=0;i<argc-1;i++)
-     {
-         array[i]=atoi(argv[i+1]);
-     }
-     
-     for(i=0;i<argc-1;i++)
-     {
-           for(j=0;j<argc-1-i;j++)
-           {
-                 if(array[j]>array[j+1])
-                 {
-                       tmp=array[j];
-                       array[j]=array[j+1];
-                       array[j+1]=tmp;
-                 }
-           }
-     }
-     
-     printf("\n Sorted Array: ");
-     for(i=0;i<argc-1;i++)
-     {
-           printf(" %d",array[i]);
-          
-     }
-           printf("\n");
-           printf(" Unsorted Array: ");
-    
-         for(i=1;i<argc;i++)
-     {
-           printf(" %s",argv[i]);
-          
-     }
-    
-    
-    printf("\n");
-    
-}
+#KEVIN LE
+$> cat ./main.sh 1 2 3 4
+
+
+array=(1 2 3 4)
+
+params=3
+count=0
+newarray=( )
+
+while [ $params -gt -1 ]; do
+    newarray[$count]=${array[$params]}
+    let params=params-1
+    let count=count+1
+done
+
+echo $#
+echo ${newarray[@]}
